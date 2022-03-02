@@ -1,3 +1,8 @@
-import { startExpress } from './express';
+//import { startExpress } from './express';
+import App from './express';
 
-startExpress();
+//startExpress();
+
+const app = new App();
+app.createRoutes();
+app.listen();
