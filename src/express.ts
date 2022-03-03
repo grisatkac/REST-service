@@ -1,7 +1,7 @@
 import express, {Application, Request, Response, NextFunction} from "express";
 import 'dotenv/config';
 
-import { router as UserRouter } from './routes/user.route';
+import { router as UserRoute } from './routes/user.route';
 
 
 const app: Application = express();
@@ -35,7 +35,7 @@ class App {
                 res.send('Service is running...');
             };
         });
-        this.app.use('/users', UserRouter);
+        this.app.use('/users', UserRoute);
         //this.app.use('/boards');
         //this.app.use('/boards/:boardId/tasks');
     }
