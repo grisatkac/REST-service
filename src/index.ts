@@ -4,5 +4,4 @@ import App from './express';
 //startExpress();
 
 const app = new App();
-app.createRoutes();
 app.listen();
