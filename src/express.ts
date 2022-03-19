@@ -1,6 +1,7 @@
 import express, {Application, Request, Response, NextFunction} from "express";
 import {connect} from "mongoose";
 import 'dotenv/config';
+import bodyParser from "body-parser"
 
 import { router as UserRoute } from './routes/user.route';
 
@@ -34,15 +35,16 @@ class App {
     };
 
     private initializeMiddlewares(): void {
-        this.app.use(express.json());
+        //this.app.use(express.json());
+        this.app.use(bodyParser.json())
     };
 
     private createRoutes(): void {
-        this.app.use('/', (req: Request, res: Response, next: NextFunction) => {
+        /*this.app.use('/', (req: Request, res: Response, next: NextFunction) => {
             if (req.originalUrl === '/') {
                 res.send('Service is running...');
             };
-        });
+        });*/
         this.app.use('/users', UserRoute);
         //this.app.use('/boards');
         //this.app.use('/boards/:boardId/tasks');
@@ -50,8 +52,9 @@ class App {
 
     private async connectToDataBase() {
         try {
-            connect(`mongodb+srv://${this.DB_USER_NAME}:${this.DB_USER_PASSWORD}@cluster0.gzbg6.mongodb.net/rest?retryWrites=true&w=majority`,     
-            () => console.log('Conneted to the database'));
+            connect(`mongodb+srv://${this.DB_USER_NAME}:${this.DB_USER_PASSWORD}@cluster0.gzbg6.mongodb.net/rest?retryWrites=true&w=majority`, {
+                
+            });
         } catch (error) {
             throw new Error(`Can\'t connect to database`);
         }

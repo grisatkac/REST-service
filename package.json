@@ -22,7 +22,6 @@
   "homepage": "https://github.com/grisatkac/REST-service#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/mongoose": "^5.11.97",
     "@types/node": "^17.0.21",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
