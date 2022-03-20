@@ -45,11 +45,11 @@ const userSchema = new Schema<IUserDocument, IUserModel>({
 //userSchema.static.showUsers = function() {}
 userSchema.method('showName', function(name: string) {
     return name;
-})
+});
 
 userSchema.static('showUsers', function() {
     return ''
-})
+});
 
 
 const User = model<IUserDocument, IUserModel>('User', userSchema);
